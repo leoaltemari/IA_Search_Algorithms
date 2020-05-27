@@ -10,6 +10,7 @@ class Map {
     destPos = new Position();
     dimension = new Position();
 
+    // Constructor - se quiser podem ignorar isso, n precisa entender
     constructor (_map) {
         let lin, col;
         lin = parseInt(_map.slice(0, 2));
@@ -21,6 +22,8 @@ class Map {
         let str;
         let fullMapAux = [];
         let beg = 7, end = 7+col;
+
+        // Transforma o mapa em uma matriz
         for(let i  = 0; i < lin; i++) {
             str = _map.slice(beg, end);
             fullMapAux.push(str);
@@ -29,12 +32,16 @@ class Map {
         }
         this.fullMap = fullMapAux;
 
+        // Pega as posicoes de origem e do destino
         for(let i = 0; i < fullMapAux.length; i++) {
+            // Origem
             let srcCol = fullMapAux[i].indexOf("#");
             if(srcCol != -1) {
                 this.sourcePos.lin = i;
                 this.sourcePos.col = srcCol;
             }
+
+            // Destino
             let destCol = fullMapAux[i].indexOf("$");
             if(destCol != -1) {
                 this.destPos.lin = i;
@@ -51,10 +58,14 @@ class Map {
     getSourcePos() {
         return this.sourcePos;
     }
-
     getDestPos() {
         return this.destPos;
     }
+    getDimension() {
+        return this.dimension;
+    }
+
+    // Intern Methods
     
 };
 
