@@ -16,30 +16,25 @@ app.use(express.static('./public'));
 // Classes
 var mapClass = require('./public/map');
 
- // Routes
-     // Default GET
-app.get('/', (req, res) => {
-    res.setHeader('Content-type', 'text/html');
-    res.sendFile('./public/index.html');
-});
+ // Routes (igonora isso)
 
-function openFile(mapa) {
+function openFile() {
     try {
-        var m = fs.readFileSync('./public/map.txt', 'utf8');
-        // console.log(a);    
+        var m = fs.readFileSync('./public/map.txt', 'utf8');   
     } catch(e) {
         console.log('Error:', e.stack);
     }
     return m;
 }
 
-var map = new mapClass.Map("");
+var file = openFile();
+var map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
+  
 
-map.setFullMap(openFile(map));
-console.log(map.toString());
+/// CODIFIQUE DAQUI PRA BAIXO
 
 
-// Run the server
+// Run the server - nao mexer
 app.listen(8080, () => {
     console.log("Servidor rodando, acesse http://localhost:8080/");
 })
