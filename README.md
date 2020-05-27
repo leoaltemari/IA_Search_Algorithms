@@ -1,6 +1,8 @@
 # Trabalho3_IA
 Arquivos de interesse: app.js   ,    /public/map.js     , /public/map.txt
+
 Os codigos começam na linha 29 do arquivo app.js
+
 Para rodar o trabalho abra o terminal na pasta do projeto e digite "nodemon app.js", pronto
 qualquer alteração que fizer no código ele vai automaticamente fechar e abrir denovo o seu projeto
 então voce n precisa ficar fechando e digitando "node app.js" no terminal sempre que fizer alguma alteração no código.
@@ -12,6 +14,7 @@ Referente ao Projeto:
     Esta classe esta melhor descrita no arquivo app.js
 
 Sobre Javascript:
+
     para declarar variaveis vc declara como:
         var nomeDaVariavel;     // Variavel global, pode ser acessada em qualquer lugar do codigo
         let nomeDaVariavel;     // Variavel de escopo, só pode ser acessada no escopo(entre chaves {})
