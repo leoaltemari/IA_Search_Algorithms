@@ -52,7 +52,7 @@ var map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
 /// CODIFIQUE DAQUI PRA BAIXO
 
 // Busca em profundidade
-const dfs = require('./public/DFS/dfs');    // Importa a classe DFS do arquivo ./public/DFS/dfs
+const dfs = require('./public/scripts/DFS/dfs');    // Importa a classe DFS do arquivo ./public//scripts/DFS/dfs
 var busca = new dfs.DFS(map, map.sourcePos, map.destPos);   // Cria objeto
 busca.find();   // Aplica a busca em profundidade
 
