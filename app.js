@@ -50,8 +50,27 @@ var map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
 */
   
 /// CODIFIQUE DAQUI PRA BAIXO
-// Printa objeto do mapa (somente para visualização)
-console.log(map);
+
+// Busca em profundidade
+const dfs = require('./public/DFS/dfs');    // Importa a classe DFS do arquivo ./public/DFS/dfs
+var busca = new dfs.DFS(map, map.sourcePos, map.destPos);   // Cria objeto
+busca.find();   // Aplica a busca em profundidade
+
+// Pega o caminho gerado pela busca
+var caminho = busca.getPath();
+console.log(caminho, caminho.length);
+
+
+// Conta quantas casas tem no mapa
+// let cont = 0;
+// for(let i = 0; i < 29; i++) {
+//     for(let j = 0; j < 26; j++) {
+//         if(map.fullMap[i][j] == '*') {
+//             cont++;
+//         }
+//     }
+// }
+// console.log(cont);
 
 // Run the server - nao mexer nisso //
 app.listen(8080, () => {

@@ -12,6 +12,7 @@ Referente ao Projeto:
     Esta classe esta melhor descrita no arquivo app.js
 
 Sobre Javascript:
+
     para declarar variaveis vc declara como:
         var nomeDaVariavel;     // Variavel global, pode ser acessada em qualquer lugar do codigo
         let nomeDaVariavel;     // Variavel de escopo, só pode ser acessada no escopo(entre chaves {})
