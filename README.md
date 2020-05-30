@@ -10,6 +10,9 @@ Referente ao Projeto:
     Mexa somente no arquivo app.js para implementar, implemente na região descrita por um comentário.
     Se precisar crie novos arquivos.
 
+    Os algoritmos de busca foram criados na forma de classes dentro da pasta './public/scripts/"
+    onde cada algoritmo possui uma pasta especifica para ele e ele foi implementado em um arquivo js
+
     Criei uma classe Map que se encontra no arquivo public/map.js, ela armazena tanto o mapa na forma de uma matriz quanto as posições de origem e de destino.
     Esta classe esta melhor descrita no arquivo app.js
 
@@ -22,6 +25,11 @@ Sobre Javascript:
 
     variaveis podem ser vetores:
         var vetor = ["posicao1", "posicao2"];
+        - Metodos de vetores: https://www.w3schools.com/js/js_array_methods.asp
+
+    Strings:
+        - Metodos de strings: https://www.w3schools.com/js/js_string_methods.asp
+        
     variaveis podem ser objetos:
         var obj = {
             nome: "leonardo",

@@ -21,7 +21,7 @@ function openFile() {
     try {
         var m = fs.readFileSync('./public/map.txt', 'utf8');   
     } catch(e) {
-        console.log('Error:', e.stack);
+        console.log('Error oppening the file:', e.stack);
     }
     return m;
 }
@@ -30,7 +30,7 @@ function openFile() {
 var mapClass = require('./public/map');
 
 var file = openFile();
-var map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
+const map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
 
 /* 
     Para acessar posições do mapa use map.fullMap[linha][coluna]
@@ -51,26 +51,24 @@ var map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
   
 /// CODIFIQUE DAQUI PRA BAIXO
 
-// Busca em profundidade
+// --------------->> DFS <<---------------
 const dfs = require('./public/scripts/DFS/dfs');    // Importa a classe DFS do arquivo ./public//scripts/DFS/dfs
-var busca = new dfs.DFS(map, map.sourcePos, map.destPos);   // Cria objeto
-busca.find();   // Aplica a busca em profundidade
+const buscaDfs = new dfs.DFS(map, map.sourcePos);   // Cria objeto (mapa e origem como parametros do construtor)
+buscaDfs.find();   // Aplica a busca em profundidade
 
-// Pega o caminho gerado pela busca
-var caminho = busca.getPath();
-console.log(caminho, caminho.length);
+// Pega o caminho gerado pela DFS
+//  console.log("DFS = ", buscaDfs.getPath();
+
+// --------------->> BSF <<---------------
+const bsf = require('./public/scripts/BFS/bsf');    // Importa a classe BSF do arquivo ./public//scripts/BSF/bfs
+const buscaBsf = new bsf.BSF(map, map.sourcePos);  // Cria objeto (mapa e origem como parametros do construtor)
+buscaBsf.find();
+
+// Pega o caminho gerado pela BSF
+// console.log("BSF = ", buscaBsf.getPath());
 
 
-// Conta quantas casas tem no mapa
-// let cont = 0;
-// for(let i = 0; i < 29; i++) {
-//     for(let j = 0; j < 26; j++) {
-//         if(map.fullMap[i][j] == '*') {
-//             cont++;
-//         }
-//     }
-// }
-// console.log(cont);
+
 
 // Run the server - nao mexer nisso //
 app.listen(8080, () => {
