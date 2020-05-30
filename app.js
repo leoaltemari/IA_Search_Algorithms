@@ -59,13 +59,13 @@ buscaDfs.find();   // Aplica a busca em profundidade
 // Pega o caminho gerado pela DFS
 //  console.log("DFS = ", buscaDfs.getPath();
 
-// --------------->> BSF <<---------------
-const bsf = require('./public/scripts/BFS/bsf');    // Importa a classe BSF do arquivo ./public//scripts/BSF/bfs
-const buscaBsf = new bsf.BSF(map, map.sourcePos);  // Cria objeto (mapa e origem como parametros do construtor)
-buscaBsf.find();
+// --------------->> BFS <<---------------
+const bfs = require('./public/scripts/BFS/bfs');    // Importa a classe bfs do arquivo ./public//scripts/BFS/bfs
+const buscaBfs = new bfs.BFS(map, map.sourcePos);  // Cria objeto (mapa e origem como parametros do construtor)
+buscaBfs.find();
 
-// Pega o caminho gerado pela BSF
-// console.log("BSF = ", buscaBsf.getPath());
+// Pega o caminho gerado pela bfs
+// console.log("BFS = ", buscaBfs.getPath());
 
 
 

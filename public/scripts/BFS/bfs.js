@@ -1,6 +1,6 @@
 'uses strict'
 
-class BSF {
+class BFS {
     /// Attributes ///
     // Vetor para guardar vertices ja visitados
     visited = [];
@@ -8,11 +8,11 @@ class BSF {
     // Vetor para guardar objetos { pai, filhos[] } de vertices ja visitados
     parentChildList = [];
 
-    // Vetor que guarda pares { linha coluna } do caminho gerado pela BSF
+    // Vetor que guarda pares { linha coluna } do caminho gerado pela BFS
     path = [];
 
-    // Lista da bsf guarda os vertices que serao visitados na ordem, ate encontrar o destino
-    bsfList = [];
+    // Lista da bfs guarda os vertices que serao visitados na ordem, ate encontrar o destino
+    bfsList = [];
 
     /// Constructor ///
     constructor(_map, _source) {
@@ -27,11 +27,11 @@ class BSF {
         return this.path;
     }
 
-    // Metodo que checa se um vertice ja esta contido na lista da BSF, para nao repetir
+    // Metodo que checa se um vertice ja esta contido na lista da BFS, para nao repetir
     // vertices e ficar em uma recursao infinita
-    alreadyVisitedBsfList(_lin, _col) {
-        for(let i = 0; i < this.bsfList.length; i++) {
-            if(this.bsfList[i].lin == _lin && this.bsfList[i].col == _col)
+    alreadyVisitedBfsList(_lin, _col) {
+        for(let i = 0; i < this.bfsList.length; i++) {
+            if(this.bfsList[i].lin == _lin && this.bfsList[i].col == _col)
                 return true;
         }
         return false;
@@ -59,9 +59,9 @@ class BSF {
         obj.pai.lin = _lin;
         obj.pai.col = _col;
 
-        // Checa se o pai ainda nao esta na lista do BSF
-        if(!this.alreadyVisitedBsfList(_lin, _col)) {
-            this.bsfList.push({_lin, _col});
+        // Checa se o pai ainda nao esta na lista do BFS
+        if(!this.alreadyVisitedBfsList(_lin, _col)) {
+            this.bfsList.push({_lin, _col});
         }
 
         // Armazena filho da DIREITA se ele for um vertice que nao seja um obstaculo
@@ -69,9 +69,9 @@ class BSF {
             this.map.fullMap[_lin][_col+1] != "-" && !this.alreadyVisited(_lin, _col+1)) {
                 let lin = _lin, col = _col+1;
                 obj.childrens.push({lin, col});
-                // Se esse filho ainda nao foi armazenado na lista de BSF ele eh adicionado
-                if(!this.alreadyVisitedBsfList(lin, col)) {
-                    this.bsfList.push({lin, col});
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
                 }
         }
         // Armazena filho de BAIXO se ele for um vertice que nao seja um obstaculo
@@ -80,9 +80,9 @@ class BSF {
                 let lin = _lin+1, col = _col;
                 obj.childrens.push({lin, col});
                 
-                // Se esse filho ainda nao foi armazenado na lista de BSF ele eh adicionado
-                if(!this.alreadyVisitedBsfList(lin, col)) {
-                    this.bsfList.push({lin, col});
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
                 }
         }
         // Armazena filho da ESQUERDA se ele for um vertice que nao seja um obstaculo
@@ -91,9 +91,9 @@ class BSF {
                 let lin = _lin, col = _col-1;
                 obj.childrens.push({lin, col});
 
-                // Se esse filho ainda nao foi armazenado na lista de BSF ele eh adicionado
-                if(!this.alreadyVisitedBsfList(lin, col)) {
-                    this.bsfList.push({lin, col});
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
                 }
         }
         // Armazena filho de CIMA se ele for um vertice que nao seja um obstaculo
@@ -102,9 +102,9 @@ class BSF {
                 let lin = _lin-1, col = _col;
                 obj.childrens.push({lin, col});
 
-                // Se esse filho ainda nao foi armazenado na lista de BSF ele eh adicionado
-                if(!this.alreadyVisitedBsfList(lin, col)) {
-                    this.bsfList.push({lin, col});
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
                 }
         }
 
@@ -115,7 +115,7 @@ class BSF {
     // O metodo recursiveFind() eh a subrotina do metodo find() de forma recursiva
     // Percorre os vertices em uma 4-vizinhanca do grafo na ordem DIREITA, BAIXO, ESQUERTA, CIMA
 
-    next = 0;   // atributo que guarda a proxima posicao do vetor bsfList[]
+    next = 0;   // atributo que guarda a proxima posicao do vetor bfsList[]
     recursiveFind(_map, lin, col) {
         /// Casos bases da recursao ///
         // Checa vizinhos inexistentes
@@ -147,7 +147,7 @@ class BSF {
                 return;
         }
 
-        // Só ira para o proximo item da lista do BSF se ainda nao tiver encontrado o destino
+        // Só ira para o proximo item da lista do BFS se ainda nao tiver encontrado o destino
         if(this.flag != 1) {
             // Guarda o vertice atual e seus filhos
             this.storeChildren(lin, col);
@@ -155,11 +155,11 @@ class BSF {
             // Guarda o vertice atual na list de vertices ja visitados para ele nao ser visitado novamente
             this.visited.push({lin, col});
 
-            /// Recursoes, ira' para o proximo vertice da bsfList[]
+            /// Recursoes, ira' para o proximo vertice da bfsList[]
             this.next = this.next + 1;
             let nextPos = this.next;
-            let auxLin = this.bsfList[nextPos].lin;
-            let auxCol = this.bsfList[nextPos].col;
+            let auxLin = this.bfsList[nextPos].lin;
+            let auxCol = this.bfsList[nextPos].col;
 
             this.recursiveFind(_map, auxLin, auxCol); 
         }
@@ -194,7 +194,7 @@ class BSF {
         this.path.push(parent);
         
         // O for externo percore o vetor de tras pra frente, basicamente ele percorre todos os vertices 'pais'
-        // que foram visitados pelo algoritmo do BSF. O for interno percorre os filhos de cada pai, buscando pelo
+        // que foram visitados pelo algoritmo do BFS. O for interno percorre os filhos de cada pai, buscando pelo
         // Vertice armazenado em 'parent'. Quando eh achado o parent vira o pai de onde foi encontrado
         for(let i = end-1; i >= 0; i--) {
             for(let j = 0; j < vector[i].childrens.length; j++) {   
@@ -224,4 +224,4 @@ class BSF {
     }
 }
 
-module.exports.BSF = BSF;
+module.exports.BFS = BFS;
