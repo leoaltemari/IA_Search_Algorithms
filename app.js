@@ -55,20 +55,22 @@ const map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
 const dfs = require('./public/scripts/DFS/dfs');    // Importa a classe DFS do arquivo ./public//scripts/DFS/dfs
 const buscaDfs = new dfs.DFS(map, map.sourcePos);   // Cria objeto (mapa e origem como parametros do construtor)
 buscaDfs.find();   // Aplica a busca em profundidade
-
 // Pega o caminho gerado pela DFS
-//  console.log("DFS = ", buscaDfs.getPath();
+// console.log("DFS = ", buscaDfs.getPath());
 
 // --------------->> BFS <<---------------
 const bfs = require('./public/scripts/BFS/bfs');    // Importa a classe bfs do arquivo ./public//scripts/BFS/bfs
 const buscaBfs = new bfs.BFS(map, map.sourcePos);  // Cria objeto (mapa e origem como parametros do construtor)
 buscaBfs.find();
-
 // Pega o caminho gerado pela bfs
 // console.log("BFS = ", buscaBfs.getPath());
 
-
-
+// --------------->> Best-First Search <<---------------
+const bestFS = require('./public/scripts/BestFS/bestfs');
+const buscaBestFS = new bestFS.BestFS(map, map.sourcePos, map.destPos);
+buscaBestFS.find();
+// Pega o caminho gerado pela Best-First Search
+// console.log("Best-First Search = ", buscaBestFS.getPath());
 
 // Run the server - nao mexer nisso //
 app.listen(8080, () => {

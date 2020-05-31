@@ -66,7 +66,7 @@ class BFS {
 
         // Armazena filho da DIREITA se ele for um vertice que nao seja um obstaculo
         if((_col+1 >= 0 && _col+1 < this.map.dimension.col) && 
-            this.map.fullMap[_lin][_col+1] != "-" && !this.alreadyVisited(_lin, _col+1)) {
+            (this.map.fullMap[_lin][_col+1] != "-") && (!this.alreadyVisited(_lin, _col+1))) {
                 let lin = _lin, col = _col+1;
                 obj.childrens.push({lin, col});
                 // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
@@ -76,7 +76,7 @@ class BFS {
         }
         // Armazena filho de BAIXO se ele for um vertice que nao seja um obstaculo
         if((_lin+1 >= 0 && _lin+1 < this.map.dimension.lin) && 
-            this.map.fullMap[_lin+1][_col] != "-" && !this.alreadyVisited(_lin+1, _col)) {
+            (this.map.fullMap[_lin+1][_col] != "-") && (!this.alreadyVisited(_lin+1, _col))) {
                 let lin = _lin+1, col = _col;
                 obj.childrens.push({lin, col});
                 
@@ -87,7 +87,7 @@ class BFS {
         }
         // Armazena filho da ESQUERDA se ele for um vertice que nao seja um obstaculo
         if((_col-1 >= 0 && _col-1 < this.map.dimension.col) && 
-            this.map.fullMap[_lin][_col-1] != "-" && !this.alreadyVisited(_lin, _col-1)) {
+            (this.map.fullMap[_lin][_col-1] != "-") && (!this.alreadyVisited(_lin, _col-1))) {
                 let lin = _lin, col = _col-1;
                 obj.childrens.push({lin, col});
 
@@ -98,7 +98,7 @@ class BFS {
         }
         // Armazena filho de CIMA se ele for um vertice que nao seja um obstaculo
         if((_lin-1 >= 0 && _lin-1 < this.map.dimension.lin) && 
-            this.map.fullMap[_lin-1][_col] != "-" && !this.alreadyVisited(_lin-1, _col)) {
+            (this.map.fullMap[_lin-1][_col] != "-" && !this.alreadyVisited(_lin-1, _col))) {
                 let lin = _lin-1, col = _col;
                 obj.childrens.push({lin, col});
 
@@ -114,8 +114,6 @@ class BFS {
 
     // O metodo recursiveFind() eh a subrotina do metodo find() de forma recursiva
     // Percorre os vertices em uma 4-vizinhanca do grafo na ordem DIREITA, BAIXO, ESQUERTA, CIMA
-
-    next = 0;   // atributo que guarda a proxima posicao do vetor bfsList[]
     recursiveFind(_map, lin, col) {
         /// Casos bases da recursao ///
         // Checa vizinhos inexistentes
@@ -156,10 +154,12 @@ class BFS {
             this.visited.push({lin, col});
 
             /// Recursoes, ira' para o proximo vertice da bfsList[]
-            this.next = this.next + 1;
-            let nextPos = this.next;
-            let auxLin = this.bfsList[nextPos].lin;
-            let auxCol = this.bfsList[nextPos].col;
+            // Remove o no Pai da lista
+            this.bfsList.splice(0, 1);
+
+            // Vai para o proximo da lista
+            let auxLin = this.bfsList[0].lin;
+            let auxCol = this.bfsList[0].col;
 
             this.recursiveFind(_map, auxLin, auxCol); 
         }
@@ -173,7 +173,7 @@ class BFS {
         let auxVector = [];
         let vector = this.path;
         for(let i = vector.length-1; i >= 0; i--) {
-            auxVector.push(vector[i]);
+            auxVector.push({lin: vector[i].lin, col: vector[i].col});
         }
         this.path = auxVector;
     }
