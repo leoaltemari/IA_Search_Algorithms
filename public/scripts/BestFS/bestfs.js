@@ -3,7 +3,8 @@
 class BestFS {
     /// Attributes ////
     bestFSList = [];    // Lista que armazena o proximo no a ser percorrido pela Best-First Search
-    path = [];          // Lista do caminho encontrado pela Best-First Search
+    path = [];          // Lista do caminho encontrado pela Best-First Search(se o ultimo valor de path for
+                        // lin = -1 e col = -1 significa que ele encontrou um caminho infinoto e nao ira sair dele)
     visited = [];       // Lista que armazena no's ja visitados para nao cair em recursao infinita
 
     /// Construtor ///
@@ -58,7 +59,7 @@ class BestFS {
     calcBestWay(_lin, _col) {
         // Variaveis de controle
         let menorValHeuristico = 0;
-        let menorLin, menorCol; // Armazenam as cordenadas do filho com menor valor heuristico
+        let menorLin = -1, menorCol = -1; // Armazenam as cordenadas do filho com menor valor heuristico
 
         let valorHeuristico; // Armazena a distancia do no filho para o destino
 
@@ -117,7 +118,6 @@ class BestFS {
                 } 
         }
         
-        
         // Remove o pai da lista
         if(this.bestFSList.length > 0) {
             this.bestFSList.splice(0, 1);
@@ -133,6 +133,12 @@ class BestFS {
 
     recursiveFind(_map, lin, col) {
         /// Casos bases da recursao ///
+        // Se ele receber linha e coluna como -1 significa que ele ira entrar em loop
+        // em um determinado caminho, por isso ele interrompe a trejetoria
+        if(lin == -1 && col == -1) {
+            return;
+        }
+        
         // Checa vizinhos inexistentes
         if(lin < 0 || lin >= _map.dimension.lin) 
             return;
@@ -148,12 +154,6 @@ class BestFS {
         if(map[lin][col] == "$"){
             this.flag = 1;
             return;
-        }
-
-        // Checa se a o vertice atual ja foi visitado para nao cair em recursao infinita
-        for(let i = 0; i < this.visited.length; i++) {
-            if(this.visited[i].lin == lin && this.visited[i].col == col)
-                return;
         }
 
         /// Se nao retornar em nenhum caso base da recursao: 

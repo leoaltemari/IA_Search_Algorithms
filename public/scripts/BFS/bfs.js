@@ -179,12 +179,13 @@ class BFS {
     }
 
     /*
-        O metodo makePath() eh responsavel por pegar o vetor parentChil[] e montar o path.
+        O metodo makePath() eh responsavel por pegar o vetor parentChild[] e montar o path.
         A ultima posicao do vetor contem o destino encontrado, com isso eh percorrido o vetor
         de tras para frente buscando esse pai nos filhos dos demais vertices, quando ele eh encontrado
         o pai passa a ser o pai do vertice encontrado, e continua percorrendo de tras pra fente buscando. 
     */
     makePath() {
+        // console.log(this.visited.length);
         // vector = vetor parentChild
         const vector = this.parentChildList;
         let end = vector.length-1;

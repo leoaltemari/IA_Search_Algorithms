@@ -52,25 +52,35 @@ const map = new mapClass.Map(file);   // Objeto que contem o mapa e seus metodos
 /// CODIFIQUE DAQUI PRA BAIXO
 
 // --------------->> DFS <<---------------
-const dfs = require('./public/scripts/DFS/dfs');    // Importa a classe DFS do arquivo ./public//scripts/DFS/dfs
+const dfs = require('./public/scripts/DFS/dfs');    // Importa a classe DFS do arquivo ./public/scripts/DFS/dfs
 const buscaDfs = new dfs.DFS(map, map.sourcePos);   // Cria objeto (mapa e origem como parametros do construtor)
 buscaDfs.find();   // Aplica a busca em profundidade
 // Pega o caminho gerado pela DFS
 // console.log("DFS = ", buscaDfs.getPath());
 
 // --------------->> BFS <<---------------
-const bfs = require('./public/scripts/BFS/bfs');    // Importa a classe bfs do arquivo ./public//scripts/BFS/bfs
+const bfs = require('./public/scripts/BFS/bfs');    // Importa a classe bfs do arquivo ./public/scripts/BFS/bfs
 const buscaBfs = new bfs.BFS(map, map.sourcePos);  // Cria objeto (mapa e origem como parametros do construtor)
 buscaBfs.find();
 // Pega o caminho gerado pela bfs
 // console.log("BFS = ", buscaBfs.getPath());
 
 // --------------->> Best-First Search <<---------------
-const bestFS = require('./public/scripts/BestFS/bestfs');
-const buscaBestFS = new bestFS.BestFS(map, map.sourcePos, map.destPos);
+const bestFS = require('./public/scripts/BestFS/bestfs');   // Importa a classe bfs do arquivo ./public/scripts/BestFS/bestfs
+const buscaBestFS = new bestFS.BestFS(map, map.sourcePos, map.destPos); // Cria objeto (mapa, origem e destino como parametros do construtor)
 buscaBestFS.find();
 // Pega o caminho gerado pela Best-First Search
 // console.log("Best-First Search = ", buscaBestFS.getPath());
+
+// --------------->> A* <<---------------
+const aStar = require('./public/scripts/Astar/astar');  // Importa a classe bfs do arquivo ./public/scripts/Astar/astar
+const buscaAStar = new aStar.AStar(map, map.sourcePos, map.destPos);    // Cria objeto (mapa, origem e destino como parametros do construtor)
+buscaAStar.find();
+// Pega o caminho gerado pelo A*
+// console.log("A* = ", buscaAStar.getPath());
+
+// --------------->> Hill Climb <<---------------
+
 
 // Run the server - nao mexer nisso //
 app.listen(8080, () => {
