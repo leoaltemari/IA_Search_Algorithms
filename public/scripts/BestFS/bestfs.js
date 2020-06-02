@@ -138,19 +138,9 @@ class BestFS {
         if(lin == -1 && col == -1) {
             return;
         }
-        
-        // Checa vizinhos inexistentes
-        if(lin < 0 || lin >= _map.dimension.lin) 
-            return;
-        if(col < 0 || col >= _map.dimension.col) 
-            return;
-
-        // Checa se o vertice atual nao eh um obstaculo
-        let map = _map.fullMap;
-        if(map[lin][col] == "-") 
-            return;
-
+    
         // checa se o vertice atual eh o DESTINO
+        let map = this.map.fullMap;
         if(map[lin][col] == "$"){
             this.flag = 1;
             return;

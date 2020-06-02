@@ -80,6 +80,11 @@ buscaAStar.find();
 // console.log("A* = ", buscaAStar.getPath());
 
 // --------------->> Hill Climb <<---------------
+const HillClimb = require('./public/scripts/HillClimb/hillclimb');  // Importa a classe bfs do arquivo ./public/scripts/HillClimb/hillclimb
+const buscaHillClimb = new HillClimb.HillClimb(map, map.sourcePos, map.destPos);    // Cria objeto (mapa, origem e destino como parametros do construtor)
+buscaHillClimb.find();
+// Pega o caminho gerado pelo HillClimb
+// console.log(buscaHillClimb.getPath());
 
 
 // Run the server - nao mexer nisso //
