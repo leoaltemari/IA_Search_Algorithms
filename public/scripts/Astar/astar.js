@@ -206,25 +206,13 @@ class AStar {
         ele continua sempre armazenando em aStarList[] os vertices ainda nao visitados da arvore
     */
     recursiveFind(_map, lin, col, walked) {
-        /// Casos bases da recursao ///
-        // Checa vizinhos inexistentes
-        if(lin < 0 || lin >= _map.dimension.lin) 
-            return;
-        if(col < 0 || col >= _map.dimension.col) 
-            return;
-
-        // Checa se o vertice atual nao eh um obstaculo
-        let map = _map.fullMap;
-        if(map[lin][col] == "-") 
-            return;
-
         // Checa se o vertice atual eh o DESTINO
+        let map = _map.fullMap;
         if(map[lin][col] == "$"){
             this.flag = 1;
             return;
         }
-
-        /// Se nao retornar em nenhum caso base da recursao: 
+        
         // Busca pelo vertice filho com menor valor heuristico
         this.calcBestWay(lin, col, walked);
        

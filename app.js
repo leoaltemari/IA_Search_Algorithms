@@ -70,7 +70,7 @@ const bestFS = require('./public/scripts/BestFS/bestfs');   // Importa a classe 
 const buscaBestFS = new bestFS.BestFS(map, map.sourcePos, map.destPos); // Cria objeto (mapa, origem e destino como parametros do construtor)
 buscaBestFS.find();
 // Pega o caminho gerado pela Best-First Search
-// console.log("Best-First Search = ", buscaBestFS.getPath());
+//  console.log("Best-First Search = ", buscaBestFS.getPath());
 
 // --------------->> A* <<---------------
 const aStar = require('./public/scripts/Astar/astar');  // Importa a classe bfs do arquivo ./public/scripts/Astar/astar

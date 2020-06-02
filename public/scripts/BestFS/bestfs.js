@@ -109,7 +109,7 @@ class BestFS {
             (this.map.fullMap[_lin-1][_col] != "-") && !this.alreadyVisited(_lin-1, _col)) {
                 // Calcula o valor heuristico do no' filho
                 valorHeuristico = this.calcDestDistance(_lin-1, _col);
-
+                
                 // Checa se eh o menor valor dentre os demais filhos
                 if(menorValHeuristico == 0 || valorHeuristico < menorValHeuristico) {
                     menorValHeuristico = valorHeuristico;

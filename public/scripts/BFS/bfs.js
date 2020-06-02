@@ -8,7 +8,7 @@ class BFS {
     // Vetor para guardar objetos { pai, filhos[] } de vertices ja visitados
     parentChildList = [];
 
-    // Vetor que guarda pares { linha coluna } do caminho gerado pela BFS
+    // Vetor que guarda pares { linha, coluna } do caminho gerado pela BFS
     path = [];
 
     // Lista da bfs guarda os vertices que serao visitados na ordem, ate encontrar o destino
@@ -59,8 +59,8 @@ class BFS {
         obj.pai.lin = _lin;
         obj.pai.col = _col;
 
-        // Checa se o pai ainda nao esta na lista do BFS
-        if(!this.alreadyVisitedBfsList(_lin, _col)) {
+        // Checa se o pai ainda nao esta na lista do BFS(lista vazia)
+        if(!this.bfsList) {
             this.bfsList.push({_lin, _col});
         }
 
@@ -116,35 +116,18 @@ class BFS {
     // Percorre os vertices em uma 4-vizinhanca do grafo na ordem DIREITA, BAIXO, ESQUERTA, CIMA
     recursiveFind(_map, lin, col) {
         /// Casos bases da recursao ///
-        // Checa vizinhos inexistentes
-        if(lin < 0 || lin >= _map.dimension.lin) 
-            return;
-        if(col < 0 || col >= _map.dimension.col) 
-            return;
-
-        // Checa se o vertice atual nao eh um obstaculo
-        let map = _map.fullMap;
-        if(map[lin][col] == "-") 
-            return;
-
         // Encontrou o DESTINO
+        let map = this.map.fullMap;
         if(map[lin][col] == "$"){
             this.flag = 1;
+            // Adiciona o destino na lista
             let obj = {
-                pai: [],
+                pai: {lin: lin, col: col},
             };
-            obj.pai.lin = lin;
-            obj.pai.col = col;
             this.parentChildList.push(obj)
             return;
         }
         
-        // Checa se a o vertice atual ja foi visitado para nao cair em recursao infinita
-        for(let i = 0; i < this.visited.length; i++) {
-            if(this.visited[i].lin == lin && this.visited[i].col == col)
-                return;
-        }
-
         // Só ira para o proximo item da lista do BFS se ainda nao tiver encontrado o destino
         if(this.flag != 1) {
             // Guarda o vertice atual e seus filhos
@@ -158,10 +141,10 @@ class BFS {
             this.bfsList.splice(0, 1);
 
             // Vai para o proximo da lista
-            let auxLin = this.bfsList[0].lin;
-            let auxCol = this.bfsList[0].col;
+            let newLin = this.bfsList[0].lin;
+            let newCol = this.bfsList[0].col;
 
-            this.recursiveFind(_map, auxLin, auxCol); 
+            this.recursiveFind(_map, newLin, newCol); 
         }
     }
 
