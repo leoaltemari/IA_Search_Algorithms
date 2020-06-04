@@ -42,6 +42,8 @@ class DFS {
             CIMA, ESQUERDA, BAIXO, DIREITA
     */
     calcBestWay(_lin, _col){
+        // Expande todos filhos que nao sao obstaculos e que ainda nao foram visitados
+        // Os filhos sao adicionados no inicio da lista
         if( (_lin-1 >= 0 && _lin-1 < this.map.dimension.lin) && 
             (this.map.fullMap[_lin-1][_col] != "-") && !this.alreadyVisited(_lin-1, _col)) {   
                 this.dfsList.splice(0 , 0, { lin: _lin-1 , col: _col });
@@ -58,7 +60,6 @@ class DFS {
             (this.map.fullMap[_lin][_col+1] != "-") && !this.alreadyVisited(_lin, _col+1)) {   
                 this.dfsList.splice(0 , 0, { lin: _lin , col: _col+1 });
         }
-        
         
         return;
     }
@@ -83,10 +84,14 @@ class DFS {
 
         /// Recursoes, so sera feita se o destino nao for encontrado(flag != 1)
         if(this.flag != 1) {
+            // Pega o proximo vertice a ser expandido que eh o primeiro da lista
             const newLin = this.dfsList[0].lin;
             const newCol = this.dfsList[0].col;
             
+            // Remove o vertice da lista
             this.dfsList.splice(0, 1);
+            
+            // Aplica a recursao no proximo vertice
             this.recursiveFind(_map, newLin, newCol);
         }
         
