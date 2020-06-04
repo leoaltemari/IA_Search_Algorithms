@@ -1,0 +1,88 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(221, 221, 221);
+}
+#maps-btns {
+    position: absolute;
+    display: inline-flex;
+    top:50px;
+    left: 250px;
+}
+
+#maps-btns button {
+    margin: 10px 50px 10px 50px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid rgb(128, 127, 127);
+    background-color: rgb(0, 255, 149);
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: 0.2s
+}
+
+#maps-btns button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgb(3, 175, 104);
+    color: white;
+}
+
+#maps-btns button:focus {
+    outline: none;
+}
+
+#search-alg {
+    position: absolute;
+    left:1100px;
+    top:150px;
+}
+
+#map {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    left: 320px;
+}
+
+#map h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+#map #selected-alg {
+    width: 400px;
+    position: absolute;
+    left: 400px;
+}
+
+
+#search-alg button {
+    margin: 20px 10px 20px 10px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid rgb(128, 127, 127);
+    background-color: rgb(0, 110, 255);
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: 0.2s
+}
+
+#search-alg button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color:rgb(0, 63, 145);
+    color: white;
+}
+
+#search-alg button:focus {
+    outline: none;
+}
+

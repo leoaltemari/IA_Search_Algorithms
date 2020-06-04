@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div id="main-app">
+        <div id="maps-btns">
+            <div class="map-btn">
+                <button id="map-one">MAPA 1</button>
+            </div>
+            <div class="map-btn">
+                <button id="map-two">MAPA 2</button>
+            </div>
+            <div class="map-btn">
+                <button id="map-three">MAPA 3</button>
+            </div>
+        </div>
+        <div id="map">
+            <h2 id="selected-map">Mapa:</h2>
+            <h2 id="selected-alg">Algoritmo:</h2>
+        </div>
+        <div id="search-alg">
+            <div id="dfs" class="dfs-btn">
+                <button id="dfs-alg">Profundidade</button>
+            </div>
+            <div id="bfs" class="bfs-btn">
+                <button id="bfs-alg">Largura</button>
+            </div>
+            <div id="bestFirst" class="bestfirst-btn">
+                <button id="bestfirst-alg">Best-First</button>
+            </div>
+            <div id="astar" class="astar-btn">
+                <button id="astar-alg">A Estrela</button>
+            </div>
+            <div id="hillclimb" class="hillclimb-btn">
+                <button id="hillclimb-alg">Hill Climb</button>
+            </div>
+
+        </div>
+
+        <div id="data-result">
+
+        </div>
+    </div>  
+</body>
+
+<script>
+    new Vue({
+        el: "#main-app",
+        data: {
+
+        },
+        methods: {
+
+        }
+    });
+</script>
+</html>
