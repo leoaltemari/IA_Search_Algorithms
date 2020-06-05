@@ -13,9 +13,9 @@ const path = require('path');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('./public/interface'));
- 
 
+// Interface
+app.use(express.static('./public/interface'));
 app.get('/', (req, res) => {
     res.setHeader('Content-type', 'text/html');
     res.sendFile('./public/interface/index.html');
