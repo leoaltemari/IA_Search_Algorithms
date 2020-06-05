@@ -6,6 +6,7 @@ class AStar {
     path = [];          // Lista do caminho encontrado pela A*
     visited = [];       // Lista que armazena vertices ja visitados para nao cair em recursao infinita
 
+    performande = 0;
     /// Construtor ///
     constructor(_map, _source, _dest) {
         this.map = _map;    
@@ -19,6 +20,10 @@ class AStar {
     getPath() {
         return this.path;
     }
+
+    getPerformance() {
+        return this.performance;
+    } 
 
     // O metodo reverseVector eh responsavel por inverter a ordem de um vetor
     // Ex.: dato um vetor {3, 5 , 1} o metodo transforma ele em um vetor {1, 5, 3}
@@ -240,6 +245,7 @@ class AStar {
         ira' comecar a percorrer(nosso g(n)), no caso, como estamos no inicio, ela eh zero
     */ 
     find() {
+        let inicio = new Date().getMilliseconds();
         // Faz um get nas informacoes que ele precisa
         let map = this.map;
         let sourceLin = this.sourcePos.lin;
@@ -249,6 +255,10 @@ class AStar {
         this.recursiveFind(map, sourceLin, sourceCol, 0);
         // Monta o caminho da origem ate o destino
         this.makePath();
+
+        let fim = new Date().getMilliseconds();
+
+        this.performance = fim - inicio;
     }
 }
 

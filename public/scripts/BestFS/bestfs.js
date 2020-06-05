@@ -7,6 +7,8 @@ class BestFS {
                         // lin = -1 e col = -1 significa que ele encontrou um caminho infinoto e nao ira sair dele)
     visited = [];       // Lista que armazena no's ja visitados para nao cair em recursao infinita
 
+    performance = 0;
+
     /// Construtor ///
     constructor(_map, _source, _dest) {
         this.map = _map;    
@@ -18,6 +20,10 @@ class BestFS {
     /// Methods ///
     getPath() {
         return this.path;
+    }
+
+    getPerformance() {
+        return this.performance;
     }
 
     // O metodo calcDestDistance() calcula a distancia euclidiana entre 
@@ -169,12 +175,16 @@ class BestFS {
         o vertice que deve ser iniciado a busca(surceLin, sourceCol)
     */ 
     find() {
+        let inicio = new Date().getMilliseconds();
         let map = this.map;
         let sourceLin = this.sourcePos.lin;
         let sourceCol = this.sourcePos.col;
 
         this.path.push({lin: sourceLin, col: sourceCol});
         this.recursiveFind(map, sourceLin, sourceCol);
+
+        let fim = new Date().getMilliseconds();
+        this.performance = fim - inicio;
     }
 }
 

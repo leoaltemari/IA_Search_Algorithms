@@ -217,6 +217,7 @@ class BFS {
         let fim = new Date().getMilliseconds();
 
         this.performance = fim - inicio;
+        console.log(this.performance);
         return;
     }
 }

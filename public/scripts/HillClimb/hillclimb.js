@@ -7,6 +7,7 @@ class HillClimb {
     
     path = [];      // Lista que armazena o caminho percorrido pelo algoritmo
 
+    performance = 0;
 
      /// Construtor ///
      constructor(_map, _source, _dest) {
@@ -20,6 +21,10 @@ class HillClimb {
     // O metodo getPath() retorna o caminho gerado pelo algoritmo HillClimb
     getPath() {
         return this.path;
+    }
+
+    getPerformance () {
+        return this.performance;
     }
 
     // O metodo calcDestDistance() calcula a distancia euclidiana entre 
@@ -187,6 +192,7 @@ class HillClimb {
         posicao de path[]. 
     */ 
     find() {
+        let inicio = new Date().getMilliseconds();
         // Faz um get nas informacoes que ele precisa
         let map = this.map;
         let sourceLin = this.sourcePos.lin;
@@ -196,6 +202,9 @@ class HillClimb {
         this.recursiveFind(map, sourceLin, sourceCol);
         // Cria o path
         this.path = this.visited;
+
+        let fim = new Date().getMilliseconds();
+        this.performance = fim - inicio;
     }
 }
 

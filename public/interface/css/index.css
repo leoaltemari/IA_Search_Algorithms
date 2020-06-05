@@ -8,13 +8,18 @@ body {
 }
 #maps-btns {
     position: absolute;
-    display: inline-flex;
+    display: inline flex;
     top:50px;
-    left: 250px;
+    left: 50px;
+    text-align: center;
+}
+
+#maps-btns h2 {
+    position: relative;
 }
 
 #maps-btns button {
-    margin: 10px 50px 10px 50px;
+    margin: 10px ;
     width: 150px;
     height: 40px;
     border: 1px solid rgb(128, 127, 127);
@@ -39,21 +44,21 @@ body {
 #search-alg {
     position: absolute;
     left:1100px;
-    top:150px;
+    top:50px;
 }
 
 #map {
     display: flex;
     position: absolute;
-    top: 120px;
-    left: 320px;
+    top: 20px;
+    left: 420px;
 }
 
 #map h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 1px;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 #map #selected-alg {
@@ -86,3 +91,9 @@ body {
     outline: none;
 }
 
+
+#data-result {
+    position: absolute;
+    left:300px;
+    top: 600px;
+}

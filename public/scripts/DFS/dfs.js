@@ -114,7 +114,6 @@ class DFS {
     // O metodo find() eh responsavel por percorrer os vertices do mapa em proufundidade
     find() {
         let inicio = new Date().getMilliseconds();
-
         // O algoritmo se inicia aqui
         let map = this.map;
         let source = this.source;
@@ -124,7 +123,7 @@ class DFS {
 
 
         let fim = new Date().getMilliseconds();
-        this.performance = fim - inicio;
+        this.performance = fim - inicio;    
         return;
     }
 }
