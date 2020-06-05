@@ -18,10 +18,31 @@ const hillClimbBtn = document.querySelector('#hillclimb-alg');
 // Selected
 const selectedMap = document.querySelector('#selected-map');
 const selectedAlg = document.querySelector('#selected-alg');
+var fullMap = document.querySelector('#full-map');
 
 // Results data
+var pathResult = document.querySelector('#path-result');
+var timeResult = document.querySelector('#time-result');
+var distResult = document.querySelector('#distancia');
 
-
+function createMap(_map) {
+    fullMap.innerHTML = "";
+    let map = _map.fullMap;
+    for(let i = 0; i < map.length; i++) {
+        for(let j = 0; j <= map[0].length; j++){
+            if(map[i][j] === '#') {
+                fullMap.innerHTML += "<spam class=\"blue\">" +" ";
+            } else if(map[i][j] === '-'){
+                fullMap.innerHTML += "<spam class=\"black\">" +"_";
+            } else if(map[i][j] === '$') {
+                fullMap.innerHTML += "<spam class=\"red\">" +"_";
+            } else {
+                fullMap.innerHTML += "<spam class=\"white\">" +"_";
+            }
+        }
+        fullMap.innerHTML += "<br>";
+    }
+}
 
 // MAPS
 map11Btn.addEventListener('click', async () => {
@@ -34,6 +55,7 @@ map11Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    //createMap(json);
 });
 
 map12Btn.addEventListener('click', async () => {
@@ -46,6 +68,7 @@ map12Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    createMap(json);
 });
 
 map13Btn.addEventListener('click', async () => {
@@ -58,6 +81,7 @@ map13Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    createMap(json);
 });
 
 map21Btn.addEventListener('click', async () => {
@@ -70,6 +94,7 @@ map21Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    createMap(json);
 });
 
 map22Btn.addEventListener('click', async () => {
@@ -82,6 +107,7 @@ map22Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    createMap(json);
 });
 
 map23Btn.addEventListener('click', async () => {
@@ -94,9 +120,30 @@ map23Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
+    createMap(json);
 });
 
 // ALGORITHMS
+
+function addPath(_path) {
+    pathResult.innerHTML = "Caminho:";
+    for(let i  = 0; i < _path.length; i++) {
+        if(i == _path.length-1) {
+            pathResult.innerHTML += "( " + _path[i].lin +", "+ _path[i].col+ " )";
+        } else {
+            pathResult.innerHTML += "( " + _path[i].lin +", "+ _path[i].col+ " ) , ";
+        }
+    }
+}
+
+function addTime(_time) {
+    timeResult.innerHTML = "Tempo: "+ _time + "ms";
+}
+
+function addDistance(_dist) {
+    distResult.innerHTML = "Distancia: "+_dist+" vértices";
+}
+
 dfsBtn.addEventListener('click', async ()=> {
     selectedAlg.innerHTML = "Algoritmo: DFS";
 
@@ -107,6 +154,10 @@ dfsBtn.addEventListener('click', async ()=> {
 
     // Get the response of the request
     let json = await res.json();
+
+    addPath(json.path);
+    addTime(json.timeExpended);
+    addDistance(json.path.length);
 })
 bfsBtn.addEventListener('click', async ()=> {
     selectedAlg.innerHTML = "Algoritmo: BFS";
@@ -118,6 +169,10 @@ bfsBtn.addEventListener('click', async ()=> {
 
     // Get the response of the request
     let json = await res.json();
+
+    addPath(json.path);
+    addTime(json.timeExpended);
+    addDistance(json.path.length);
 })
 bestFirstBtn.addEventListener('click', async ()=> {
     selectedAlg.innerHTML = "Algoritmo: Best-First";
@@ -129,6 +184,10 @@ bestFirstBtn.addEventListener('click', async ()=> {
 
     // Get the response of the request
     let json = await res.json();
+
+    addPath(json.path);
+    addTime(json.timeExpended);
+    addDistance(json.path.length);
 })
 aStarBtn.addEventListener('click', async ()=> {
     selectedAlg.innerHTML = "Algoritmo: A*";
@@ -140,6 +199,10 @@ aStarBtn.addEventListener('click', async ()=> {
 
     // Get the response of the request
     let json = await res.json();
+
+    addPath(json.path);
+    addTime(json.timeExpended);
+    addDistance(json.path.length);
 })
 hillClimbBtn.addEventListener('click', async ()=> {
     selectedAlg.innerHTML = "Algoritmo: Hill Climb";
@@ -151,6 +214,10 @@ hillClimbBtn.addEventListener('click', async ()=> {
 
     // Get the response of the request
     let json = await res.json();
+
+    addPath(json.path);
+    addTime(json.timeExpended);
+    addDistance(json.path.length);
 })
 
 

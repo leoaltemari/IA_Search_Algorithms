@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trabalho 3 - IA</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="css/index.css">
@@ -42,6 +42,9 @@
         <div id="map">
             <h2 id="selected-map">Mapa:</h2>
             <h2 id="selected-alg">Algoritmo:</h2>
+            <div id="full-map">
+                <canvas width="600" height="400" style="border:solid;" ></canvas>
+            </div>
         </div>
         <div id="search-alg">
             <div id="dfs" class="dfs-btn">
@@ -63,21 +66,10 @@
         </div>
 
         <div id="data-result">
-            <h2>Caminho:</h2><br><br>
-            <h2>Tempo:</h2>
+            <h2 id="path-result">Caminho:</h2><br><br>
+            <h2 id="distancia">Distancia:</h2>
+            <h2 id="time-result">Tempo:</h2>
         </div>
     </div>  
 </body>
-
-<script>
-    new Vue({
-        el: "#main-app",
-        data: {
-
-        },
-        methods: {
-
-        }
-    });
-</script>
 </html>

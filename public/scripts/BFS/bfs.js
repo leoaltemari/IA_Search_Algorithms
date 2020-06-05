@@ -72,27 +72,7 @@ class BFS {
             this.bfsList.push({_lin, _col});
         }
 
-        // Armazena filho da DIREITA se ele for um vertice que nao seja um obstaculo
-        if((_col+1 >= 0 && _col+1 < this.map.dimension.col) && 
-            (this.map.fullMap[_lin][_col+1] != "-") && (!this.alreadyVisited(_lin, _col+1))) {
-                let lin = _lin, col = _col+1;
-                obj.childrens.push({lin, col});
-                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
-                if(!this.alreadyVisitedBfsList(lin, col)) {
-                    this.bfsList.push({lin, col});
-                }
-        }
-        // Armazena filho de BAIXO se ele for um vertice que nao seja um obstaculo
-        if((_lin+1 >= 0 && _lin+1 < this.map.dimension.lin) && 
-            (this.map.fullMap[_lin+1][_col] != "-") && (!this.alreadyVisited(_lin+1, _col))) {
-                let lin = _lin+1, col = _col;
-                obj.childrens.push({lin, col});
-                
-                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
-                if(!this.alreadyVisitedBfsList(lin, col)) {
-                    this.bfsList.push({lin, col});
-                }
-        }
+
         // Armazena filho da ESQUERDA se ele for um vertice que nao seja um obstaculo
         if((_col-1 >= 0 && _col-1 < this.map.dimension.col) && 
             (this.map.fullMap[_lin][_col-1] != "-") && (!this.alreadyVisited(_lin, _col-1))) {
@@ -104,6 +84,29 @@ class BFS {
                     this.bfsList.push({lin, col});
                 }
         }
+        
+        // Armazena filho de BAIXO se ele for um vertice que nao seja um obstaculo
+        if((_lin+1 >= 0 && _lin+1 < this.map.dimension.lin) && 
+            (this.map.fullMap[_lin+1][_col] != "-") && (!this.alreadyVisited(_lin+1, _col))) {
+                let lin = _lin+1, col = _col;
+                obj.childrens.push({lin, col});
+                
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
+                }
+        }
+        // Armazena filho da DIREITA se ele for um vertice que nao seja um obstaculo
+        if((_col+1 >= 0 && _col+1 < this.map.dimension.col) && 
+            (this.map.fullMap[_lin][_col+1] != "-") && (!this.alreadyVisited(_lin, _col+1))) {
+                let lin = _lin, col = _col+1;
+                obj.childrens.push({lin, col});
+                // Se esse filho ainda nao foi armazenado na lista de BFS ele eh adicionado
+                if(!this.alreadyVisitedBfsList(lin, col)) {
+                    this.bfsList.push({lin, col});
+                }
+        }
+        
         // Armazena filho de CIMA se ele for um vertice que nao seja um obstaculo
         if((_lin-1 >= 0 && _lin-1 < this.map.dimension.lin) && 
             (this.map.fullMap[_lin-1][_col] != "-" && !this.alreadyVisited(_lin-1, _col))) {
@@ -217,7 +220,6 @@ class BFS {
         let fim = new Date().getMilliseconds();
 
         this.performance = fim - inicio;
-        console.log(this.performance);
         return;
     }
 }
