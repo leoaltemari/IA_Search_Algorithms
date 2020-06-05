@@ -121,9 +121,8 @@ class DFS {
         this.path = this.visited;
         // O algoritmo finaliza aqui
 
-
         let fim = new Date().getMilliseconds();
-        this.performance = fim - inicio;    
+        this.performance = fim - inicio;            
         return;
     }
 }

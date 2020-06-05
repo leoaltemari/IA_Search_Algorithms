@@ -55,7 +55,7 @@ map11Btn.addEventListener('click', async () => {
 
     // Get the response of the request
     let json = await res.json();
-    //createMap(json);
+    createMap(json);
 });
 
 map12Btn.addEventListener('click', async () => {

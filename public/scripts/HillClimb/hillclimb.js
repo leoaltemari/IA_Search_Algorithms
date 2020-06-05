@@ -191,7 +191,7 @@ class HillClimb {
         As coordenadas do vertice de maximo local ficam armazenadas na penultima
         posicao de path[]. 
     */ 
-    find() {
+    find() {    
         let inicio = new Date().getMilliseconds();
         // Faz um get nas informacoes que ele precisa
         let map = this.map;

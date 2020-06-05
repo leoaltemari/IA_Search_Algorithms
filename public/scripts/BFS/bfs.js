@@ -68,8 +68,8 @@ class BFS {
         obj.pai.col = _col;
 
         // Checa se o pai ainda nao esta na lista do BFS(lista vazia)
-        if(!this.bfsList) {
-            this.bfsList.push({_lin, _col});
+        if(this.bfsList.length === 0) {
+            this.bfsList.push({lin:_lin, col:_col});
         }
 
 
