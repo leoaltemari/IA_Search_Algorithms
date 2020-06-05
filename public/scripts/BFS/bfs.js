@@ -14,6 +14,9 @@ class BFS {
     // Lista da bfs guarda os vertices que serao visitados na ordem, ate encontrar o destino
     bfsList = [];
 
+    // Armazena a o tempo despendido pelo algoritmo BFS
+    performance = [];
+
     /// Constructor ///
     constructor(_map, _source) {
         this.map = _map;
@@ -25,6 +28,11 @@ class BFS {
     // Retorna o caminho gerado pela busca
     getPath() {
         return this.path;
+    }
+
+    // Retorna o tempo gasto pelo algoritmo
+    getPerformance() {
+        return this.performance;
     }
 
     // Metodo que checa se um vertice ja esta contido na lista da BFS, para nao repetir
@@ -196,6 +204,7 @@ class BFS {
 
     // O metodo find() eh responsavel por percorrer os vercices do mapa em largura
     find() {
+        let inicio = new Date().getMilliseconds();
         let map = this.map;
         let source = this.source;
 
@@ -204,6 +213,10 @@ class BFS {
 
         // Montagem do caminho a partir da busca
         this.makePath();
+
+        let fim = new Date().getMilliseconds();
+
+        this.performance = fim - inicio;
         return;
     }
 }

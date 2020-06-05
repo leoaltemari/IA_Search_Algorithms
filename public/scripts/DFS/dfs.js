@@ -10,6 +10,9 @@ class DFS {
     // Vetor que armazena o caminho gerado pelo algoritmo DFS
     path = [];
 
+    // Atributo que guarda o tempo de execucao do algoritmo
+    performance = 0;
+
     /// Constructor ///
     constructor(_map, _source) {
         this.map = _map;
@@ -21,6 +24,15 @@ class DFS {
     // Retorna o caminho gerado pela busca
     getPath() {
         return this.path;
+    }
+
+    // Retorna o tempo gasto pelo algoritmo
+    getPerformance() {
+        return this.performance;
+    }
+
+    getMemory() {
+        return this.dfsList.length;
     }
 
     /* 
@@ -48,18 +60,20 @@ class DFS {
             (this.map.fullMap[_lin-1][_col] != "-") && !this.alreadyVisited(_lin-1, _col)) {   
                 this.dfsList.splice(0 , 0, { lin: _lin-1 , col: _col });
         }
-        if( (_col-1 >= 0 && _col-1 < this.map.dimension.col) && 
-            (this.map.fullMap[_lin][_col-1] != "-") && !this.alreadyVisited(_lin, _col-1)) {   
-                this.dfsList.splice(0 , 0, { lin: _lin , col: _col-1 });
+        if( (_col+1 >= 0 && _col+1 < this.map.dimension.col) && 
+            (this.map.fullMap[_lin][_col+1] != "-") && !this.alreadyVisited(_lin, _col+1)) {   
+                this.dfsList.splice(0 , 0, { lin: _lin , col: _col+1 });
         }
         if( (_lin+1 >= 0 && _lin+1 < this.map.dimension.lin) && 
             (this.map.fullMap[_lin+1][_col] != "-") && !this.alreadyVisited(_lin+1, _col)) {   
                 this.dfsList.splice(0 , 0, { lin: _lin+1 , col: _col });
         }
-        if( (_col+1 >= 0 && _col+1 < this.map.dimension.col) && 
-            (this.map.fullMap[_lin][_col+1] != "-") && !this.alreadyVisited(_lin, _col+1)) {   
-                this.dfsList.splice(0 , 0, { lin: _lin , col: _col+1 });
+        if( (_col-1 >= 0 && _col-1 < this.map.dimension.col) && 
+            (this.map.fullMap[_lin][_col-1] != "-") && !this.alreadyVisited(_lin, _col-1)) {   
+                this.dfsList.splice(0 , 0, { lin: _lin , col: _col-1 });
         }
+        
+        
         
         return;
     }
@@ -99,10 +113,18 @@ class DFS {
 
     // O metodo find() eh responsavel por percorrer os vertices do mapa em proufundidade
     find() {
+        let inicio = new Date().getMilliseconds();
+
+        // O algoritmo se inicia aqui
         let map = this.map;
         let source = this.source;
         this.recursiveFind(map, source.lin, source.col);
         this.path = this.visited;
+        // O algoritmo finaliza aqui
+
+
+        let fim = new Date().getMilliseconds();
+        this.performance = fim - inicio;
         return;
     }
 }
