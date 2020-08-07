@@ -11,13 +11,17 @@
     <h5>Desenvolvido por: Leonardo Altemari Nogueira</h5>
     </div>
 </div>
+<h4>📋 Para acessar a documentação completa com a descrição da implementação
+	de cada algoritmo em particular, acesse:</h4>
+<a href="https://docs.google.com/document/d/1O4pdOBr0iXWtJWLRaAJXEf1v2Dy2kNHazkwaas4fBUQ/edit?usp=sharing">Documentação Completa</a>
+<br><br>
 <p>O projeto é  um trabalho de graduação da disciplina de Inteligência Artificial do curso de Ciências da Computação da USP de São Carlos.</p>
 <p>No projeto, foram implementados 5 algoritmos de buscas, que foram aplicados em um labirinto para melhor visualização do usuário.</p>
 <p>Foi criado também uma interface para que o usuário consiga escolher o labirinto(mapa) que deseja aplicar os algoritmos e também qual algoritmo deseja aplicar naquele mapa.</p>
 <p>Escolhido o mapa e o algoritmo, o back-end da aplicação retorna para o usuário, na parte inferior da interface alguns dados, como o caminho gerado pelo algoritmo, a distancia desse caminho e o tempo que o algoritmo demorou para calcular este caminho</p>
 <h4><b>Interface:</b></h4>
 <div align="center">
-    <img src="./public/images/interface.PNG" />
+    <img src="./public/images/interface.PNG"/>
 </div>
 
 <h3>💻 Algoritmos </h3>
@@ -26,15 +30,15 @@
     <li>
         <h5>➡️ Busca em Profundidade</h5>
         <div align="center">
-            <img src="./public/images/dfs_definition.PNG" />
-            <img src="./public/images/dfs_demonstration.gif" />
+            <img src="./public/images/dfs_definition.PNG" height="200px" width="400px"/>
+            <img src="./public/images/dfs_demonstration.gif" height="200px" width="400px"/>
         </div>
     </li>
     <li>
         <h5>➡️ Busca em Largura</h5>
         <div align="center">
-            <img src="./public/images/bfs_definition.PNG" />
-            <img src="./public/images/bfs_demonstration.gif" />
+            <img src="./public/images/bfs_definition.PNG" height="200px" width="400px"/>
+            <img src="./public/images/bfs_demonstration.gif" height="200px" width="400px"/>
         </div>
     </li>
 </ul>
@@ -44,31 +48,31 @@
     <li>
         <h5>➡️Busca Best-First</h5>
         <div align="center">
-            <img src="./public/images/bestfirst_definition1.PNG" />
-            <img src="./public/images/bestfirst_definition2.PNG" />
+            <img src="./public/images/bestfirst_definition1.PNG" height="200px" width="400px"/>
+            <img src="./public/images/bestfirst_definition2.PNG" height="200px" width="400px"/>
             <h5>Best-First sem obstáculos</h5>
-            <img src="./public/images/bestfirst_demonstration1.gif" />
+            <img src="./public/images/bestfirst_demonstration1.gif" height="200px" width="400px"/>
             <h5>Best-First com obstáculos</h5>
-            <img src="./public/images/bestfirst_demonstration2.gif" />
+            <img src="./public/images/bestfirst_demonstration2.gif" height="200px" width="400px"/>
         </div>
     </li>
     <li>
         <h5>➡️ Busca A*(A estrela)</h5>
         <div align="center">
-            <img src="./public/images/astar_definition1.PNG" />
-            <img src="./public/images/astar_definition2.PNG" />
-            <img src="./public/images/astar_demonstration.gif" />
+            <img src="./public/images/astar_definition1.PNG" height="200px" width="400px"/>
+            <img src="./public/images/astar_definition2.PNG" height="200px" width="400px"/>
+            <img src="./public/images/astar_demonstration.gif" height="200px" width="400px"/>
         </div>
     </li>
     <li>
         <h5>➡️ Busca Hill Climbing</h5>
         <div align="center">
-            <img src="./public/images/hillclimbing_definition1.PNG" />
-            <img src="./public/images/hillclimbing_definition2.PNG" />
+            <img src="./public/images/hillclimbing_definition1.PNG" height="200px" width="400px"/>
+            <img src="./public/images/hillclimbing_definition2.PNG" height="200px" width="400px"/>
             <h5>Hiill Climbing sem obstáculos</h5>
-            <img src="./public/images/hillclimbing_demonstration1.gif" />
+            <img src="./public/images/hillclimbing_demonstration1.gif" height="200px" width="400px"/>
             <h5>Hiill Climbing com obstáculos</h5>
-            <img src="./public/images/hillclimbing_demonstration2.gif" />
+            <img src="./public/images/hillclimbing_demonstration2.gif" height="200px" width="400px"/>
         </div>
     </li>
 </ul><br>
@@ -76,7 +80,7 @@
 <h3>🕙 Tempo dos algoritmos </h3>
 <div align="center">
     <h4>Tempo despendido por cada algoritmo em segundos:</h4>
-    <img src="./public/images/time.PNG"/>
+    <img src="./public/images/time.PNG" height="200px" width="600px" align="center"/>
 </div>
 
 <h3>🚀  Tecnologias utilizadas </h3>
