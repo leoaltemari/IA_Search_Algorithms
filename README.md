@@ -1,40 +1,130 @@
-# Trabalho3_IA
-Arquivos de interesse: app.js   ,    /public/map.js     , /public/map.txt
+# Artificial Intelligence - Search Algorithms
 
-Os codigos começam na linha 29 do arquivo app.js
+<h3>📺 Apresentação </h3>
+<div>
+    <div style="color:#351c75;" align="center">
+        <h5>Instituto de Ciências Matemáticas e de Computação - USP São Carlos</h5>
+        <img src="./public/images/icmc_logo.PNG" height="50px" width="130px">
+        <h5 style="font-size:6px;">Maio 2020</h5>
+    </div>
+    <div>
+    <h5>Desenvolvido por: Leonardo Altemari Nogueira</h5>
+    </div>
+</div>
+<p>O projeto é  um trabalho de graduação da disciplina de Inteligência Artificial do curso de Ciências da Computação da USP de São Carlos.</p>
+<p>No projeto, foram implementados 5 algoritmos de buscas, que foram aplicados em um labirinto para melhor visualização do usuário.</p>
+<p>Foi criado também uma interface para que o usuário consiga escolher o labirinto(mapa) que deseja aplicar os algoritmos e também qual algoritmo deseja aplicar naquele mapa.</p>
+<p>Escolhido o mapa e o algoritmo, o back-end da aplicação retorna para o usuário, na parte inferior da interface alguns dados, como o caminho gerado pelo algoritmo, a distancia desse caminho e o tempo que o algoritmo demorou para calcular este caminho</p>
+<h4><b>Interface:</b></h4>
+<div align="center">
+    <img src="./public/images/interface.PNG" />
+</div>
 
-Para rodar o trabalho abra o terminal na pasta do projeto e digite "nodemon app.js", pronto
-qualquer alteração que fizer no código ele vai automaticamente fechar e abrir denovo o seu projeto
-então voce n precisa ficar fechando e digitando "node app.js" no terminal sempre que fizer alguma alteração no código.
-Referente ao Projeto:
-    Mexa somente no arquivo app.js para implementar, implemente na região descrita por um comentário.
-    Se precisar crie novos arquivos.
+<h3>💻 Algoritmos </h3>
+<h4>🚩 Buscas Cegas:</h4>
+<ul style="list-style-type:none;">
+    <li>
+        <h5>➡️ Busca em Profundidade</h5>
+        <div align="center">
+            <img src="./public/images/dfs_definition.PNG" />
+            <img src="./public/images/dfs_demonstration.gif" />
+        </div>
+    </li>
+    <li>
+        <h5>➡️ Busca em Largura</h5>
+        <div align="center">
+            <img src="./public/images/bfs_definition.PNG" />
+            <img src="./public/images/bfs_demonstration.gif" />
+        </div>
+    </li>
+</ul>
 
-    Os algoritmos de busca foram criados na forma de classes dentro da pasta './public/scripts/"
-    onde cada algoritmo possui uma pasta especifica para ele e ele foi implementado em um arquivo js
+<h4>🚩 Buscas Informadas:</h4>
+<ul style="list-style-type:none;">
+    <li>
+        <h5>➡️Busca Best-First</h5>
+        <div align="center">
+            <img src="./public/images/bestfirst_definition1.PNG" />
+            <img src="./public/images/bestfirst_definition2.PNG" />
+            <h5>Best-First sem obstáculos</h5>
+            <img src="./public/images/bestfirst_demonstration1.gif" />
+            <h5>Best-First com obstáculos</h5>
+            <img src="./public/images/bestfirst_demonstration2.gif" />
+        </div>
+    </li>
+    <li>
+        <h5>➡️ Busca A*(A estrela)</h5>
+        <div align="center">
+            <img src="./public/images/astar_definition1.PNG" />
+            <img src="./public/images/astar_definition2.PNG" />
+            <img src="./public/images/astar_demonstration.gif" />
+        </div>
+    </li>
+    <li>
+        <h5>➡️ Busca Hill Climbing</h5>
+        <div align="center">
+            <img src="./public/images/hillclimbing_definition1.PNG" />
+            <img src="./public/images/hillclimbing_definition2.PNG" />
+            <h5>Hiill Climbing sem obstáculos</h5>
+            <img src="./public/images/hillclimbing_demonstration1.gif" />
+            <h5>Hiill Climbing com obstáculos</h5>
+            <img src="./public/images/hillclimbing_demonstration2.gif" />
+        </div>
+    </li>
+</ul><br>
 
-    Criei uma classe Map que se encontra no arquivo public/map.js, ela armazena tanto o mapa na forma de uma matriz quanto as posições de origem e de destino.
-    Esta classe esta melhor descrita no arquivo app.js
+<h3>🕙 Tempo dos algoritmos </h3>
+<div align="center">
+    <h4>Tempo despendido por cada algoritmo em segundos:</h4>
+    <img src="./public/images/time.PNG"/>
+</div>
 
-Sobre Javascript:
+<h3>🚀  Tecnologias utilizadas </h3>
+<ul>
+    <li>
+        <a  href="https://nodejs.org/en/" target="blank">Node.js</a>
+    </li>
+    <li>
+        <a  href="https://expressjs.com/pt-br/" target="blank">Express</a>
+    </li>
+    <li>
+        <a  href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="blank">HTML 5</a>
+    </li>
+    <li>
+        <a  href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="blank">CSS 3</a>
+    </li>
+    <li>
+        <a  href="https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript" target="blank">JavaScript(ES6)</a>
+    </li>
+</ul>
 
-    para declarar variaveis vc declara como:
-        var nomeDaVariavel;     // Variavel global, pode ser acessada em qualquer lugar do codigo
-        let nomeDaVariavel;     // Variavel de escopo, só pode ser acessada no escopo(entre chaves {})
-        const nomeDaVariavel;   // Constante igual qualquer linguagem
+<h3>🔥 Instalação e inicialização</h3>
+<ul>
+<p>Para compilar e executar o código, é necessário ter instalado no computador o Node.js já que a interface é montada em cima de requisições em um servidor local, para renderizar um mapa escolhido ou executar um dos algoritmos no mapa. </p>
+	<li><b>1º)</b> Link para instalar o Node JS: https://nodejs.org/en/download/</li>
+	<li><b>2º)</b> Baixe e execute o instalador para seu Sistema Operacional.</li>
+	<li><b>3º)</b> Feito isso, abra a pasta do projeto “IA_Search_Algorithms” no terminal, se estiver no windows, utilize o powershell ou o terminal do VSCode.</li>
+	<li><b>4º)</b> Com o terminal aberto, digite o seguinte comando “npm install” para instalar as dependências do projeto e aguarde elas serem instaladas.</li>
+	<li><b>5º)</b> Ainda na pasta do projeto pelo terminal, digite o comando “npm start”.</li>
+	<li><b>6º)</b> Feito isso o servidor é pra estar rodando e ele mostrará a seguinte mensagem no terminal: “Servidor rodando, acesse http://localhost:8080/”.</li>
+	<li><b>7º)</b> Abra o link no navegador:  http://localhost:8080/ .</li>
+	<li><b>8º)</b> Selecione um mapa antes de aplicar qualquer algoritmo.</li>
+</ul>
 
-    variaveis podem ser vetores:
-        var vetor = ["posicao1", "posicao2"];
-        - Metodos de vetores: https://www.w3schools.com/js/js_array_methods.asp
+<h3>📘 Referências</h3>
+<ul>
+    <li>
+        <a href="https://ae4.tidia-ae.usp.br/access/content/group/b93e2a33-c2e8-4c69-b64a-c4b49e5f08e0/06-07.%20Prolog_busca.pdf">https://ae4.tidia-ae.usp.br/access/content/group/b93e2a33-c2e8-4c69-b64a-c4b49e5f08e0/06-07.%20Prolog_busca.pdf</a>
+    </li><br>
+    <li>
+        <a href="http://www.ic.uff.br/~ilaim/IA5.pdf">
+        http://www.ic.uff.br/~ilaim/IA5.pdf
+        </a>
+    </li><br>
+    <li>
+        Seções 2.3 e 3.4 : 
+        <a href="http://www.monografias.poli.ufrj.br/monografias/monopoli10019618.pdf">http://www.monografias.poli.ufrj.br/monografias/monopoli10019618.pdf
+        </a>
+    </li>
+</ul>
 
-    Strings:
-        - Metodos de strings: https://www.w3schools.com/js/js_string_methods.asp
-        
-    variaveis podem ser objetos:
-        var obj = {
-            nome: "leonardo",
-            sobrenome: "altemari"
-        }
-
-    para printar algo no terminal utilize "console.log("o que vc quiser printar");"
-    tudo que voce printar ira aparecer no terminal em que vc rodou o "nodemon app.js"
